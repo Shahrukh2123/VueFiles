@@ -20,7 +20,7 @@ steps:
     connectedServiceName: 'Shahrukh*2'
     UpstreamJob: 'Test'
     changeRequestDetails: |
-      - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+      task: ServiceNow-DevOps-Server-Change-Acceleration@1
                     inputs:
                         connectedServiceName: 'DevopsDemoProject-ServiceNow DevOps Service Connection'
                         changeRequestDetails: |
