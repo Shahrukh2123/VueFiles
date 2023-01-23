@@ -7,6 +7,11 @@ trigger:
 - main
 
 pool:
+- task: ServiceNow-DevOps-Agent-Job-Notification@1
+  inputs:
+    connectedServiceName: 'Shahrukh*2'
+    upstream: 'Build'
+    Phase: 'STARTED'
   vmImage: ubuntu-latest
 
 steps:
