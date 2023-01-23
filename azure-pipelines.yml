@@ -1,4 +1,9 @@
 # Node.js with Vue
+- task: ServiceNow-DevOps-Agent-Job-Notification@1
+  inputs:
+    connectedServiceName: 'genpactdevelop-Demo Project-ServiceNow DevOps Service Connection'
+    upstream: 'Build'
+    Phase: 'STARTED'
 # Build a Node.js project that uses Vue.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -10,6 +15,29 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: ServiceNow-DevOps-Server-Change-Acceleration@1
+  inputs:
+    connectedServiceName: 'Shahrukh*2'
+    UpstreamJob: 'Test'
+    changeRequestDetails: |
+      - task: ServiceNow-DevOps-Server-Change-Acceleration@1
+                    inputs:
+                        connectedServiceName: 'DevopsDemoProject-ServiceNow DevOps Service Connection'
+                        changeRequestDetails: |
+                          {
+                            "setCloseCode": false,
+                            "attributes": {
+                              "requested_by": {
+                                  "name": "test user"
+                              },
+                              "category": "DevOps",
+                              "priority": "2",
+                              "comments": "This is a sample pipeline script to be added in your change step",
+                              "work_notes": "Update this to work_notes",
+                              "start_date": "2022-01-05 11:59:59",
+                              "end_date": "2022-01-08 11:59:59"
+                           }
+                          }
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
