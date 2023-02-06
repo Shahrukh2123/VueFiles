@@ -1,5 +1,6 @@
 # HTML
 
+
 # Archive your static HTML project and save it with the build record.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -11,6 +12,17 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceName'
+    serviceConnection: 'genpactdevelop-Demo Project-Generic Connection'
+    method: 'POST'
+    body: |
+      {
+                  "buildNumber": "$(build.buildId)",
+                  "isMultiBranch": "true",
+                  "branchName": "$(build.sourceBranchName)"
+    waitForCompletion: 'false'
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.sourcesDirectory)'
