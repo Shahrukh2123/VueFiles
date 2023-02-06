@@ -1,4 +1,16 @@
 # Node.js with Vue
+- task: InvokeRESTAPI@1
+  inputs:
+    connectionType: 'connectedServiceName'
+    serviceConnection: 'genpactdevelop-Demo Project-Generic Connection'
+    method: 'POST'
+    body: |
+      {
+                 "buildNumber": "$(build.buildId)",
+                  "isMultiBranch": "true",
+                  "branchName": "$(build.sourceBranchName)"
+               }
+    waitForCompletion: 'false'
 # Build a Node.js project that uses Vue.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
