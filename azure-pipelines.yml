@@ -35,8 +35,4 @@ steps:
                               "end_date": "2022-01-08 11:59:59"
                            }
                           }
-- task: ServiceNow-DevOps-Agent-Job-Notification@1
-  inputs:
-    connectedServiceName: 'SN_Devops_Integration'
-    upstream: 'Test'
-    Phase: 'STARTED'
+
